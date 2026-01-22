@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Assistant</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Vishnu web assistant</h1>
+
+    <form method="POST" action="/assistant">
+        <input type="text" name="message" placeholder="Ask something..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    <% if (reply) { %>
+        <div class="reply">
+            <strong>Assistant:</strong>
+            <%= reply %>
+        </div>
+        <% } %>
+
+
+            <script>
+                function speak(text) {
+                    const speech = new SpeechSynthesisUtterance(text);
+                    speech.lang = 'en-US';
+                    speech.rate = 1;
+                    speech.pitch = 1;
+
+                    window.speechSynthesis.speak(speech);
+                }
+
+                <% if (reply) { %>
+                    speak("<%= reply %>");
+                    <% } %>
+            </script>
+</body>
+
+</html>
