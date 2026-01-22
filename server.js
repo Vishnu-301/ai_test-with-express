@@ -19,6 +19,9 @@ app.post("/assistant", (req, res) => {
         case 'hello':
             reply = "Hello! How can I help you?";
             break;
+        case 'what is your name':
+            reply = "I am Vish, your web assistant.";
+            break;
         case 'what is the time':
             reply = `Current time is ${new Date().toLocaleTimeString()}`;
             break;
